@@ -15,6 +15,7 @@ import type {
   FunctionReference,
 } from "convex/server";
 import type * as flow from "../flow.js";
+import type * as flows from "../flows.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -26,6 +27,7 @@ import type * as flow from "../flow.js";
  */
 declare const fullApi: ApiFromModules<{
   flow: typeof flow;
+  flows: typeof flows;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

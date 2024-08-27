@@ -6,9 +6,11 @@ import { api } from "../../../../convex/_generated/api"
 import { useOrganization } from "@clerk/nextjs"
 import { useApiMutation } from "../../../../hooks/use-api-mutation"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 export const EmptyFlow = () => {
 
+    const router = useRouter()
     const { pending, mutate } = useApiMutation(api.flow.create)
     const { organization } = useOrganization();
 
@@ -22,6 +24,7 @@ export const EmptyFlow = () => {
         })
             .then((id) => {
                 toast.success("Flow criado com sucesso")
+                router.push(`/flow/${id}`)
             })
             .catch(() => toast.error("Falha ao criar seu flow"))
     }
