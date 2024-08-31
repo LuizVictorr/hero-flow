@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { mutation } from "./_generated/server"
+import { mutation, query } from "./_generated/server"
 
 const images = [
     "/flow-image-example.png",
@@ -160,5 +160,16 @@ export const unfavorite = mutation({
         return flow
     }
 });
+
+export const get = query({
+    args: { id: v.id("flows") },
+    handler: async (ctx, args) => {
+        const flow = ctx.db.get(args.id);
+
+        return flow;
+    },
+});
+
+
 
 
