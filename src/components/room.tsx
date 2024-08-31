@@ -21,7 +21,9 @@ export const Room = ({ children, roomId, fallback }: RoomProps) => {
                 id={roomId}
                 initialPresence={{
                     cursor: null,
-                    selection: []
+                    selection: [],
+                    pencilDraft: null,
+                    penColor: null
 
                 }}
                 initialStorage={{
